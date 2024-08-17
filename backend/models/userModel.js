@@ -1,0 +1,32 @@
+/*import mongoose, { mongo } from "mongoose";
+
+const userSchema = new mongoose.Schema(
+  {
+    name: { type: String, required: true },
+    email: { type: String, required: true, unique: true },
+    password: { type: String, required: true },
+    cartData: { type: Object, default: {} },
+  },
+  { minimize: false }
+);
+
+const userModel = mongoose.models.user || mongoose.model("user", userSchema);
+
+export default userModel;
+*/
+import mongoose from "mongoose";
+
+const userSchema = new mongoose.Schema(
+  {
+    name: { type: String, required: true },
+    email: { type: String, required: true, unique: true }, // Added `lowercase` and `trim`
+    password: { type: String, required: true },
+    cartData: { type: Object, default: {} },
+  },
+  { minimize: false }
+);
+
+// Use PascalCase for model name, following convention
+const UserModel = mongoose.models.User || mongoose.model("User", userSchema);
+
+export default UserModel;
