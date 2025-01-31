@@ -19,7 +19,8 @@ const LoginPopup = ({ setShowLogin }) => {
     const value = event.target.value;
     setData((data) => ({ ...data, [name]: value }));
   };
-  const onLogin = async (event) => {
+  {
+    /**const onLogin = async (event) => {
     event.preventDefault();
     let newUrl = url;
     if (currState === "Login") {
@@ -33,9 +34,8 @@ const LoginPopup = ({ setShowLogin }) => {
       localStorage.setItem("token", response.data.token);
       setShowLogin(false);
     }
-  };
-
-  /*
+  };*/
+  }
   const onLogin = async (event) => {
     event.preventDefault();
     let newUrl = url;
@@ -44,15 +44,21 @@ const LoginPopup = ({ setShowLogin }) => {
     } else {
       newUrl += "/api/user/register";
     }
-    const response = await axios.post(newUrl, data);
-    if (response.data.success) {
-      setToken(response.data.token);
-      localStorage.setting("token", response.data.token);
-      setShowLogin(false);
-    } else {
-      alert(response.data.message);
+
+    console.log("Sending request to: ", newUrl); // <-- Add this line to log the URL
+
+    try {
+      const response = await axios.post(newUrl, data);
+      console.log(response); // <-- Check the response
+      if (response.data.success) {
+        setToken(response.data.token);
+        localStorage.setItem("token", response.data.token);
+        setShowLogin(false);
+      }
+    } catch (error) {
+      console.error("Error in login/signup: ", error); // <-- Log any errors
     }
-  };*/
+  };
 
   return (
     <div className="login-popup">
@@ -101,6 +107,10 @@ const LoginPopup = ({ setShowLogin }) => {
         </button>
         <div className="login-popup-condition">
           <input type="checkbox" required />
+          <b>
+            {" "}
+            <p>Kindly set the password of length more than 10 character</p>
+          </b>
           <p>By continuing, i agree to the term of use & condition policy</p>
         </div>
         {currState === "Login" ? (
