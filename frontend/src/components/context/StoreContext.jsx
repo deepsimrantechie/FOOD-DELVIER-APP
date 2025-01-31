@@ -5,7 +5,7 @@ import axios from "axios";
 
 const StoreContextProvider = (props) => {
   const [cartItems, SetCartItems] = useState({});
-  const url = "http://localhost:4000";
+  const url = "https://food-delvier-app.onrender.com";
   const [token, setToken] = useState("");
 
   const [food_list, setFoodList] = useState([]);
