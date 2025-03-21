@@ -59,6 +59,7 @@ import profile_icon from "./profile_icon.png";
 import bag_icon from "./bag_icon.png";
 import logout_icon from "./logout_icon.png";
 import parcel_icon from "./parcel_icon.png";
+import HomePage from "./HomePage.png";
 
 export const url = "https://food-delvier-app.onrender.com";
 
@@ -82,6 +83,7 @@ export const assets = {
   logout_icon,
   bag_icon,
   parcel_icon,
+  HomePage,
 };
 
 export const menu_list = [

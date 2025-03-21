@@ -4,20 +4,38 @@
   font-size: max(3vw, 20px);
   text-align: center;
   font-weight: 500;
+  padding: 40px 20px;
+  background: linear-gradient(
+    135deg,
+    #ff6b81,
+    #d72638
+  ); /* Soft Pink to Primary Red gradient */
+  border-radius: 20px;
+  color: #fff5f7; /* Light Pinkish White for text */
+  box-shadow: 0 8px 16px rgba(215, 38, 56, 0.3); /* Shadow with Primary Red tint */
 }
+
+.app-download p {
+  margin-bottom: 20px;
+  line-height: 1.5;
+}
+
 .app-download-platforms {
   display: flex;
   justify-content: center;
   gap: max(2vw, 10px);
   margin-top: 40px;
 }
+
 .app-download-platforms img {
   width: max(30vw, 120px);
   max-width: 180px;
-  transition: 0.5s;
+  transition: transform 0.5s ease, box-shadow 0.5s ease;
   cursor: pointer;
+  border-radius: 15px; /* Rounded corners for app store buttons */
 }
 
 .app-download-platforms img:hover {
   transform: scale(1.05);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* Subtle shadow on hover */
 }
